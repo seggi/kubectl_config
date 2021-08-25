@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-virtual-host-name
+spec:
+  rules:
+  - host: author.myapp.com
+    http:
+      paths:
+        backend:
+          serviceName: author-service
+          servicePort: 3000
+  - host: books.myapp.com
+    http:
+      paths:
+        backend:
+          serviceName: books-service
+          servicePort: 3000
+
